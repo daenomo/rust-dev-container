@@ -1,0 +1,13 @@
+services:
+  rust-dev-container:
+    build: 
+      dockerfile: Dockerfile
+      context: .
+      args:
+        - USERNAME=${USERNAME:-dev-user}
+    container_name: rust-dev-container
+    volumes:
+      - .:/home/${USERNAME:-dev-user}/app
+    stdin_open: true
+    tty: true
+
